@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Academic & Professional Qualifications | Prof. Dr. G. Hussein Rassool</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header-wrap">
+   
+    <div class="container topbar">
+      <a class="brand" href="index.html"><div class="logo-mark">HR</div><div class="title"><span class="name">Prof. Dr. G. Hussein Rassool</span><span class="sub">Islāmic Psychotherapy &amp; Psychology</span></div></a>
+
+      <nav class="navbar" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="books.html">Books</a>
+        <a href="qualifications.html" class="active">Qualifications</a>
+        <a href="positions.html">Positions</a>
+        <a href="publications.html">Publications</a>
+        <a href="services.html" class="cta">Book Consultation</a>
+      </nav>
+
+      
+    </div>
+
+    <div id="mobile-menu" style="display:none; background:var(--surface); border-top:1px solid rgba(15,23,42,0.03);">
+      <div class="container" style="padding:12px 0; display:flex;flex-direction:column;gap:6px;">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="books.html">Books</a>
+        <a href="qualifications.html" class="active">Qualifications</a>
+        <a href="positions.html">Positions</a>
+        <a href="publications.html">Publications</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero reveal">
+      <div style="grid-column:1/-1;">
+        <div class="eyebrow">Academic &amp; Professional</div>
+        <h1>Academic &amp; Professional Qualifications</h1>
+        <p class="lead">A comprehensive record of degrees, postgraduate certificates, professional credentials, fellowships and relevant metrics. Source: provided PDF.</p>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2>Academic Qualifications</h2>
+      <div class="qual-list" style="margin-top:10px;">
+        <div class="qual-row"><strong>PhD</strong> — Psychology &amp; Education, University of London, Faculty of Medicine.</div>
+        <div class="qual-row"><strong>MSc</strong> — Health and Education, King’s College London.</div>
+        <div class="qual-row"><strong>BA</strong> — Psychology (Educational, Cognitive, Social, Biological), The Open University, UK.</div>
+        <div class="qual-row"><strong>Postgraduate Certificates</strong> — Post Graduate Certificate in Maqasid Methodology (Maqasid Institute); Post Graduate Certificate in Knowledge Integration &amp; Islāmic Thought (Institute of Knowledge Integration, IIIT).</div>
+      </div>
+    </section>
+
+    <section class="section alt reveal">
+      <h2>Professional &amp; Teaching Qualifications</h2>
+      <div style="margin-top:10px; display:grid;gap:10px;">
+        <div class="card">Further Education Teacher’s Certificate (FETC) — City &amp; Guilds</div>
+        <div class="card">Certificate in Education — University College Cardiff</div>
+        <div class="card">Certificate in Counselling — Middlesex University</div>
+        <div class="card">Certificate in Supervision &amp; Consultation — Maudsley Hospital / Institute of Psychiatry</div>
+        <div class="card">Certificate in the Care and Management of HIV/AIDS — Royal College of Nursing, UK</div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2>Fellowships, Memberships &amp; Professional Associations</h2>
+      <div style="display:grid;gap:10px;margin-top:10px;">
+        <div class="card"><strong>FRSPH</strong> — Fellow, Royal Society of Public Health</div>
+        <div class="card"><strong>FIAIP</strong> — Senior Fellow, International Association of Islāmic Psychology</div>
+        <div class="card"><strong>ILTM</strong> — Member, Institute of Learning &amp; Teaching</div>
+        <div class="card"><strong>Trustee</strong> — International Association of Muslim Psychologists</div>
+        <div class="card">Member — International Society of Substance Use Professionals</div>
+        <div class="card">Founding / Honorary Member — Bangladesh Islāmic Psychology and Counselling Association</div>
+      </div>
+    </section>
+
+    <section class="section alt reveal">
+      <h2>Scholarship Metrics &amp; Profiles</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;">
+        <div class="card" style="min-width:160px;"><div class="kicker">Citations</div><div style="font-weight:700;font-size:1.2rem;margin-top:6px">380</div><div class="hint">h-index 30 • i10-index 72</div></div>
+        <div class="card" style="min-width:260px;"><div class="kicker">Profiles</div><div style="margin-top:6px" class="hint">Google Scholar • Scopus • ORCiD (links available)</div></div>
+      </div>
+
+      <div style="margin-top:12px" class="hint">Links: Google Scholar / Scopus / ORCiD are provided in the source material.</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
+        <div>&copy; <span id="yearQual"></span> Prof. Dr. G. Hussein Rassool</div>
+        <div style="color:var(--muted)">Contact: hrconsultancy.icc@gmail.com • +230 5700 698</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menuToggleQ')?.addEventListener('click', function(){
+      const mobile = document.getElementById('mobile-menu');
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      mobile.style.display = expanded ? 'none' : 'block';
+    });
+
+    (function(){
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(n => obs.observe(n));
+    })();
+
+    document.getElementById('yearQual').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

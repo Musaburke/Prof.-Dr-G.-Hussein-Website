@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Positions | Prof. Dr. G. Hussein Rassool</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header-wrap">
+    
+    <div class="container topbar">
+      <a class="brand" href="index.html"><div class="logo-mark">HR</div><div class="title"><span class="name">Prof. Dr. G. Hussein Rassool</span><span class="sub">Islāmic Psychotherapy &amp; Psychology</span></div></a>
+      <nav class="navbar" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="books.html">Books</a>
+        <a href="qualifications.html">Qualifications</a>
+        <a href="positions.html" class="active">Positions</a>
+        <a href="publications.html">Publications</a>
+        <a href="services.html" class="cta">Book Consultation</a>
+      </nav>
+      
+    </div>
+    <div id="mobile-menu" style="display:none; background:var(--surface); border-top:1px solid rgba(15,23,42,0.03);">
+      <div class="container" style="padding:12px 0; display:flex;flex-direction:column;gap:6px;">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="books.html">Books</a>
+        <a href="qualifications.html">Qualifications</a>
+        <a href="positions.html" class="active">Positions</a>
+        <a href="publications.html">Publications</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero reveal">
+      <div style="grid-column:1/-1;">
+        <div class="eyebrow">Career</div>
+        <h1>Current &amp; Previous Positions</h1>
+        <p class="lead">Selected roles from the source PDF (complete list included).  </p>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2>Current / Recent Roles</h2>
+      <div style="display:grid;gap:12px;margin-top:10px;">
+        <div class="card"><strong>Professor of Islāmic Psychology</strong> — Centre for Islāmic Studies &amp; Civilisations, Charles Sturt University, Australia. March 2023 — (online teaching &amp; research). (link in source)</div>
+        <div class="card"><strong>Chair</strong> — Al-Balkhi Research Institute, UK; Director of Studies, Al Balagh Academy.</div>
+        <div class="card"><strong>Director of Academic &amp; Clinical Affairs</strong> — Sakina Way (Online Addiction Service). (https://www.sakinaway.com/)</div>
+        <div class="card"><strong>Director of Academic Affairs &amp; Consultant</strong> — Yashfeen Psychiatry &amp; Islāmic Psychology, Bangladesh.</div>
+        <div class="card"><strong>Mentorship &amp; Supervision</strong> — Department of Islāmic Psychology, Mind &amp; Brain Hospital, India.</div>
+      </div>
+    </section>
+
+    <section class="section alt reveal">
+      <h2>Selected Past Roles</h2>
+      <div style="display:grid;gap:12px;margin-top:10px;">
+        <div class="card"><strong>Professor of Islāmic Psychology &amp; Consultant</strong> — Riphah Institute of Clinical and Professional Psychology, Riphah International University (Jan 2019 — 2023).</div>
+        <div class="card"><strong>Director</strong> — Riphah Institute of Clinical and Professional Psychology (Apr 2020 — Dec 2020).</div>
+        <div class="card"><strong>Dean, Faculty of Liberal Arts &amp; Sciences</strong> — Islāmic Online University (Oct 2017 — 2021).</div>
+        <div class="card"><strong>Professor &amp; Head of Department</strong> — Faculty of Psychology, Islāmic Online University (2014 — 2021).</div>
+        <div class="card"><strong>Executive Director &amp; Clinical Consultant</strong> — Islāmic Online University Counselling Service – SOLACE.</div>
+        <div class="card"><strong>Course Developer &amp; Tutor</strong> — Faculty of Psychology, Islāmic Online University (2014 — 2019).</div>
+        <div class="card"><strong>Executive Director &amp; Clinical Consultant</strong> — Sakina Counselling Institute (2013 — 2020).</div>
+        <div class="card"><strong>Academic Advisor</strong> — DOHA Academy of Tertiary Studies, Mauritius (2011 — 2019).</div>
+        <div class="card"><strong>Lecturer in Psychology</strong> — DOHA Academy of Tertiary Studies: BA (Islāmic Studies), BA (Arabic Studies), B Ed., M. Ed.</div>
+        <div class="card"><strong>Visiting Professor</strong> — University of Sao Paulo &amp; Federal University of Minas Gerais, Brazil (2004 — 2006).</div>
+        <div class="card"><strong>Professor of Mental Health &amp; Addiction</strong> — University of Sao Paulo @ Ribeirao Preto (2002 — 2004).</div>
+        <div class="card"><strong>Senior Lecturer</strong> — Addictive Behaviour &amp; Psychological Medicine, St George’s Hospital Medical School (University of London) (1998 — 2002).</div>
+        <div class="card"><strong>Lecturer</strong> — Addictive Behaviour &amp; Psychological Medicine, St George's Hospital Medical School (1991 — 1998).</div>
+        <div class="card"><strong>Education &amp; Training Co-ordinator</strong> — Maudsley Drug Training Unit / National Addiction Centre, London (1987 — 1991).</div>
+        <div class="card"><strong>Independent Consultant</strong> — Mental Health &amp; Addiction; Psychotherapist / Director of Intercultural Therapy Centre, Mauritius; Clinical Consultant &amp; Executive Director, Sakina Counselling Institute &amp; Research.</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
+        <div>&copy; <span id="yearPos"></span> Prof. Dr. G. Hussein Rassool</div>
+        <div style="color:var(--muted)">For enquiries: hrconsultancy.icc@gmail.com • +230 5700 698</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menuToggleP')?.addEventListener('click', function(){
+      const mobile = document.getElementById('mobile-menu');
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      mobile.style.display = expanded ? 'none' : 'block';
+    });
+
+    (function(){
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(n => obs.observe(n));
+    })();
+
+    document.getElementById('yearPos').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
