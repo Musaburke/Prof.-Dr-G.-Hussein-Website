@@ -220,7 +220,7 @@ body {
 .cards-grid .card:hover {
   transform: translateY(-10px);
   box-shadow: var(--hover-shadow);
-  background-color: var(--accent-color);
+  background: linear-gradient(135deg, #50C9C3, #1D4E89); /* index cards */
   color: #ffffff;
 }
 
@@ -300,7 +300,7 @@ body {
 
 /* Teal Accents for Specific Sections */
 .section.alt {
-  background-color: var(--accent-color);
+  background-color: black;
   color: var(--bg);
   padding: 40px 20px;
   border-radius: var(--radius-lg);
@@ -313,28 +313,30 @@ body {
 }
 
 /* Footer */
+
+
 .site-footer {
   background: linear-gradient(135deg, #021818, #02615c);
   padding: 40px 20px;
   color: #ffffff;
   text-align: center;
+  width: 100%;
 }
 
-/* Footer Styling */
-.site-footer {
-  background-color: var(--primary-color);
-  padding: 40px 20px;
-  color: #ffffff;
-  text-align: center;
-}
-
-.footer-inner {
+.site-footer .footer-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
+  max-width: none; /* Remove any max-width constraint */
+  width: 100%;     /* Make it fill full width */
+  margin: 0 auto;  /* Center content if needed */
+  padding: 0 20px; /* Optional padding inside */
 }
+
+
+
 
 .footer-logo-img {
   width: 150px;  /* Adjust to your image size */
@@ -507,7 +509,7 @@ body {
     /* Modify the background or text color for the Educational & Developmental Services section */
     #educational-developmental-services {
       background-color: #f1f8e9; /* Light greenish background */
-      color: #333333; /* Dark text for readability */
+      color: #fffbfb; /* Dark text for readability */
       padding: 40px 20px;
       border-radius: 10px;
     }
@@ -742,5 +744,291 @@ body {
 @media(max-width: 768px) {
   .services-cards-grid {
     grid-template-columns: 1fr;
+  }
+}
+:root {
+  --bg: #fefefe;
+  --primary: #1D4E89; /* Deep Blue */
+  --accent: #50C9C3;  /* Teal */
+  --muted: #64748b;
+  --text: #333;
+  --card-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  --hover-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Header */
+.header-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--primary);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  color: var(--primary);
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title .name {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.title .sub {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #e0e0e0;
+}
+
+/* Navbar */
+.navbar a {
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 25px;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.navbar .cta {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 20px;
+}
+
+.navbar .cta:hover {
+  box-shadow: var(--hover-shadow);
+}
+
+/* Hero Section */
+.hero {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, var(--accent), var(--primary)); /* index top hero */
+  color: #fff;
+  text-align: center;
+  border-radius: var(--radius);
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Section Titles */
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary);
+  text-align: center;
+}
+
+/* Qualification Cards */
+.qual-list, .section .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+.card.qual{
+  background-color: #d5e7e6;
+  padding: 20px;
+}
+.card.qual p {
+  color: black;
+}
+.card.qual h3 {
+  margin-bottom: 6px;
+}
+
+.card.qual .sub {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.card.qual .inst {
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+ body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+  margin: 0;
+}
+
+/* Main content should expand to fill available space */
+main {
+  flex: 1;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.body-grid {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header | content | footer */
+  min-height: 100vh; /* full viewport height */
+}
+
+main.container {
+  /* ensure content fills the middle row */
+  width: 100%;
+}
+body.qual-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure full height */
+}
+
+/* Make main content grow to fill available space */
+body.qual-page main {
+  flex: 1;
+}
+
+/* Ensure footer sticks to the bottom */
+body.qual-page .site-footer {
+  margin-left: calc(-50vw + 50%);
+  min-height: 150px; /* Minimum height you want for the footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center footer content */
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #021818, #02615c);
+  color: #ffffff;
+  text-align: center;
+}
+.section.alt.scholarships-section {
+  border-radius: 0;
+}
+
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--hover-shadow);
+  background: linear-gradient(135deg, #50C9C3, #1D4E89); /* scholorship cards */
+  color: #050000;
+}
+
+.card strong {
+  color: var(--primary);
+}
+
+/* Alternate Sections */
+.section.alt {
+  background: linear-gradient(135deg, var(--accent), var(--primary)); /* prof , scholorship , selectedpastroels */
+  color: #c70707;
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  
+}
+.fellowships-section {
+  background-color: #e0f2f1; /* light teal/green */
+  padding: 40px 20px;
+  border-radius: var(--radius);
+}
+.fellowships-section .card:hover {
+  background-color: var(--gradient-bg);
+  color: #ffffff;              /* Make text visible on hover */
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-8px);
+}
+.prof-section {
+  background-color: #f0f4f4; /* light grayish */
+  padding: 40px 20px;
+  border-radius: var(--radius);
+}
+.prof-section .card:hover {
+  background: linear-gradient(135deg, #e2e3e6,#6f9d9b );
+  color: #0c0505;              /* Make text visible on hover */
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-8px);
+}
+
+
+/* Scholarship Metrics */
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.metrics .card {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+/* Footer
+.site-footer {
+  background: var(--primary);
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+} */
+
+/* Responsive */
+@media(max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
   }
 }
