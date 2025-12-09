@@ -1032,3 +1032,23 @@ body.qual-page .site-footer {
     font-size: 1.5rem;
   }
 }
+
+
+ 
+
+  
+.doi { font-size:0.75rem; color:#555; margin-left:6px; display:none; }
+.pub-list { display:grid; gap:12px; margin-top:8px; }
+.pub-entry { background:#e0f2f1; padding:10px 12px; border-radius:8px; border:1px solid rgba(15,23,42,0.08); position:relative; }
+.pub-entry:hover .doi { display:inline; }
+.fellowships-section {
+
+  padding: 40px 20px;
+  border-radius: var(--radius);
+}
+.fellowships-section .card:hover {
+  background-color: var(--gradient-bg);
+  color: #ffffff;              /* Make text visible on hover */
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-8px);
+}
