@@ -117,7 +117,7 @@
     </div>
   </div>
 
-  <!-- Contact + Form Section -->
+ <!-- Contact + Form Section -->
 <div class="contact-form-section">
   <!-- Contact Info -->
   <div class="services-contact-info-box">
@@ -157,34 +157,47 @@
   emailjs.init("YkgFcqhbkkO9rCNn-"); 
 
   const form = document.getElementById('emailForm');
+  const cooldownMinutes = 10; // set cooldown duration
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Honeypot check
-    if (this.website.value) {
-      console.log("Spam detected!");
+    // 1️⃣ Check cooldown
+    const lastSent = localStorage.getItem('lastSent');
+    const now = Date.now();
+    const cooldown = cooldownMinutes * 60 * 1000;
+
+    if (lastSent && now - lastSent < cooldown) {
+      const remaining = Math.ceil((cooldown - (now - lastSent)) / 1000 / 60);
+      alert(`Please wait ${remaining} more minute(s) before sending another message.`);
       return;
     }
 
-    // reCAPTCHA check
+    // 2️⃣ Honeypot check
+    if (this.website.value) {
+      console.log("Spam detected via honeypot!");
+      return;
+    }
+
+    // 3️⃣ reCAPTCHA check
     const recaptcha = grecaptcha.getResponse();
     if (!recaptcha) {
       alert("Please verify that you are not a robot.");
       return;
     }
 
+    // 4️⃣ Send email
     emailjs.sendForm('service_contact', 'template_contact', this)
       .then(function() {
         alert('Message sent successfully!');
         form.reset(); 
         grecaptcha.reset(); // reset reCAPTCHA
+        localStorage.setItem('lastSent', now); // store timestamp
       }, function(error) {
         alert('Failed to send message: ' + JSON.stringify(error));
       });
   });
 </script>
-
 
 <script>
   function toggleDropdown(card) {
@@ -192,7 +205,6 @@
     dropdown.classList.toggle('open');
   }
 </script>
-
 
   
 
