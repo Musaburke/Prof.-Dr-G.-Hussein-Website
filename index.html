@@ -25,14 +25,24 @@
         </div>
       </a>
       <nav class="navbar" aria-label="Primary">
-        <a href="index.html" class="active">Home</a>
-        <a href="services.html">Services</a>
-        <a href="books.html">Books</a>
-        <a href="qualifications.html">Qualifications</a>
-        <a href="positions.html">Positions</a>
-        <a href="publications.html">Publications</a>
-        <a href="services.html#contactForm" class="cta">Book Consultation</a>
-      </nav>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="books.html">Books</a>
+  <a href="qualifications.html">Qualifications</a>
+  <a href="positions.html">Positions</a>
+
+  <!-- Publications Dropdown -->
+  <div class="dropdown">
+    <button class="dropbtn" aria-expanded="false">Publications <span class="arrow">▾</span></button>
+    <div class="dropdown-content">
+      <a href="publications.html#books">Books</a>
+      <a href="journal.html">Journals</a>
+      <a href="blogs.html">Blogs</a>
+    </div>
+  </div>
+
+  <a href="services.html#contactForm" class="cta">Book Consultation</a>
+</nav>
     </div>
 
     <div id="mobile-menu" style="display:none;">
@@ -131,6 +141,11 @@
           </a>
         </li>
         <li>
+          <a href="https://www.youtube.com/channel/UCB50SzZZYLeP9qwT6f4QHkQ" target="_blank" title="Youtube">
+            <img src="images/youtube.png" alt="Amazon" class="social-icons" />
+          </a>
+        </li>
+        <li>
           <a href="https://scholar.google.com/citations?hl=en&user=zxcsvHYAAAAJ" target="_blank" title="Google Scholar">
             <img src="images/scholar.png" alt="Google Scholar" class="social-icons" />
           </a>
@@ -157,23 +172,62 @@
 
 
 
-  <script>
-    const toggle = document.getElementById('menuToggle');
-    const mobile = document.getElementById('mobile-menu');
-    toggle?.addEventListener('click', () => {
+ <script>
+
+  // ----- Mobile Menu Toggle -----
+  const toggle = document.getElementById('menuToggle');
+  const mobile = document.getElementById('mobile-menu');
+
+  if (toggle && mobile) {
+    toggle.addEventListener('click', () => {
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!expanded));
       mobile.style.display = expanded ? 'none' : 'block';
     });
+  }
 
-    (function(){
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(n => obs.observe(n));
-    })();
+ document.addEventListener('DOMContentLoaded', () => {
+  const dropdowns = document.querySelectorAll('.dropdown');
 
-    document.getElementById('yearHome').textContent = new Date().getFullYear();
-  </script>
+  dropdowns.forEach(drop => {
+    const content = drop.querySelector('.dropdown-content');
+    if (!content) return;
+
+    // Track if mouse is over dropdown or content
+    let isHovered = false;
+
+    drop.addEventListener('mouseenter', () => {
+      isHovered = true;
+      content.classList.add('open');
+    });
+
+    drop.addEventListener('mouseleave', () => {
+      isHovered = false;
+      // Delay to allow moving into content
+      setTimeout(() => {
+        if (!isHovered) content.classList.remove('open');
+      }, 100);
+    });
+
+    content.addEventListener('mouseenter', () => {
+      isHovered = true;
+      content.classList.add('open');
+    });
+
+    content.addEventListener('mouseleave', () => {
+      isHovered = false;
+      setTimeout(() => {
+        if (!isHovered) content.classList.remove('open');
+      }, 100);
+    });
+
+    // Click toggle for mobile
+    drop.addEventListener('click', (e) => {
+      if (e.target.closest('.dropdown-content')) return; // clicking inside doesn't toggle
+      content.classList.toggle('open');
+    });
+  });
+});
+</script>
 </body>
 </html>

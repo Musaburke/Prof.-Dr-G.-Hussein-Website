@@ -6,11 +6,12 @@
   <title>Services | Prof. Dr. G. Hussein Rassool</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <style>
-    
-
-    
-  </style>
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+        emailjs.init("YkgFcqhbkkO9rCNn-"); // replace with your EmailJS public key
+    })();
+  </script>
 </head>
 <body>
 
@@ -27,14 +28,24 @@
     </a>
 
     <nav class="navbar" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="services.html" class="active">Services</a>
-      <a href="books.html">Books</a>
-      <a href="qualifications.html">Qualifications</a>
-      <a href="positions.html">Positions</a>
-      <a href="publications.html">Publications</a>
-      <a href="services.html#contactForm" class="cta">Book Consultation</a>
-    </nav>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="books.html">Books</a>
+  <a href="qualifications.html">Qualifications</a>
+  <a href="positions.html">Positions</a>
+
+  <!-- Publications Dropdown -->
+  <div class="dropdown">
+    <button class="dropbtn" aria-expanded="false">Publications <span class="arrow">▾</span></button>
+    <div class="dropdown-content">
+      <a href="publications.html#books">Books</a>
+      <a href="journal.html">Journals</a>
+      <a href="blogs.html">Blogs</a>
+    </div>
+  </div>
+
+  <a href="services.html#contactForm" class="cta">Book Consultation</a>
+</nav>
   </div>
 </header>
 
@@ -107,30 +118,74 @@
   </div>
 
   <!-- Contact + Form Section -->
-  <div class="contact-form-section">
-    <!-- Contact Info -->
-    <div class="services-contact-info-box">
-      <div class="contact-profile">
-        <img src="images/image1.png" alt="Prof. Dr. G. Hussein Rassool">
-      </div>
-      <h3>Consultation at a glance</h3>
-      <p class="hint"><strong>Focus:</strong> Islāmic psychotherapy & psycho-spiritual counselling</p>
-      <p class="hint"><strong>Sessions:</strong> Monday & Tuesday, 9:30 AM – 4:30 PM</p>
-      <p class="hint"><strong>Phone / WhatsApp:</strong> +230 5700 698</p>
-      <p class="hint"><strong>Email:</strong> hrconsultancy.icc@gmail.com</p>
+<div class="contact-form-section">
+  <!-- Contact Info -->
+  <div class="services-contact-info-box">
+    <div class="contact-profile">
+      <img src="images/image1.png" alt="Prof. Dr. G. Hussein Rassool">
     </div>
-
-    <!-- Contact Shortcut Form -->
-    <div class="contact-form" id = "contactForm">
-      <h3>Quick Contact</h3>
-      <input type="text" placeholder="Your Name" />
-      <input type="email" placeholder="Your Email" />
-      <textarea placeholder="Your Message"></textarea>
-      <button>Send</button>
-    </div>
+    <h3>Consultation at a glance</h3>
+    <p class="hint"><strong>Focus:</strong> Islāmic psychotherapy & psycho-spiritual counselling</p>
+    <p class="hint"><strong>Sessions:</strong> Monday & Tuesday, 9:30 AM – 4:30 PM</p>
+    <p class="hint"><strong>Phone / WhatsApp:</strong> +230 5700 698</p>
+    <p class="hint"><strong>Email:</strong> hrconsultancy.icc@gmail.com</p>
   </div>
-</section>
- 
+
+  <!-- Contact Shortcut Form -->
+  <div class="contact-form" id="contactForm">
+    <h3>Quick Contact</h3>
+    <form id="emailForm">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      
+      <!-- Honeypot (hidden field to trap bots) -->
+      <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <!-- Google reCAPTCHA -->
+      <div class="g-recaptcha" data-sitekey="6LeAtCosAAAAAA4uoNnYnGy3-eedjr_z7ADCTHdu"></div>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+  // Initialize EmailJS with your public key
+  emailjs.init("YkgFcqhbkkO9rCNn-"); 
+
+  const form = document.getElementById('emailForm');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Honeypot check
+    if (this.website.value) {
+      console.log("Spam detected!");
+      return;
+    }
+
+    // reCAPTCHA check
+    const recaptcha = grecaptcha.getResponse();
+    if (!recaptcha) {
+      alert("Please verify that you are not a robot.");
+      return;
+    }
+
+    emailjs.sendForm('service_3ist1ww', 'YkgFcqhbkkO9rCNn-', this)
+      .then(function() {
+        alert('Message sent successfully!');
+        form.reset(); 
+        grecaptcha.reset(); // reset reCAPTCHA
+      }, function(error) {
+        alert('Failed to send message: ' + JSON.stringify(error));
+      });
+  });
+</script>
+
+
 <script>
   function toggleDropdown(card) {
     const dropdown = card.querySelector('.dropdown-content');
@@ -160,6 +215,11 @@
           </a>
         </li>
         <li>
+          <a href="https://www.youtube.com/channel/UCB50SzZZYLeP9qwT6f4QHkQ" target="_blank" title="Youtube">
+            <img src="images/youtube.png" alt="Amazon" class="social-icons" />
+          </a>
+        </li>
+        <li>
           <a href="https://scholar.google.com/citations?hl=en&user=zxcsvHYAAAAJ" target="_blank" title="Google Scholar">
             <img src="images/scholar.png" alt="Google Scholar" class="social-icons" />
           </a>
@@ -186,6 +246,55 @@
 
 
 <script>
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  dropdowns.forEach(drop => {
+    const content = drop.querySelector('.dropdown-content');
+    if (!content) return;
+
+    // Track if mouse is over dropdown or content
+    let isHovered = false;
+
+    drop.addEventListener('mouseenter', () => {
+      isHovered = true;
+      content.classList.add('open');
+    });
+
+    drop.addEventListener('mouseleave', () => {
+      isHovered = false;
+      // Delay to allow moving into content
+      setTimeout(() => {
+        if (!isHovered) content.classList.remove('open');
+      }, 100);
+    });
+
+    content.addEventListener('mouseenter', () => {
+      isHovered = true;
+      content.classList.add('open');
+    });
+
+    content.addEventListener('mouseleave', () => {
+      isHovered = false;
+      setTimeout(() => {
+        if (!isHovered) content.classList.remove('open');
+      }, 100);
+    });
+
+    // Click toggle for mobile
+    drop.addEventListener('click', (e) => {
+      if (e.target.closest('.dropdown-content')) return; // clicking inside doesn't toggle
+      content.classList.toggle('open');
+    });
+  });
+});
+
+
+
+
+
   function toggleDropdown(card) {
     const dropdown = card.querySelector('.dropdown-content');
     dropdown.classList.toggle('open');

@@ -97,57 +97,139 @@ body {
   justify-content: center; 
 }
 
-/* Navbar */
+/* ==============================
+   NAVBAR
+============================== */
 .navbar {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   gap: 20px;
-  flex-wrap: nowrap; 
   padding: 0;
 }
 
+/* Normal nav links */
 .navbar a {
   color: #ffffff;
   font-weight: 600;
   padding: 10px 15px;
   border-radius: 25px;
-  transition: all var(--transition-fast);
   text-decoration: none;
+  transition: background-color 0.25s ease;
 }
 
 .navbar a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* CTA button */
 .navbar .cta {
   background-color: var(--accent-color);
-  color: #ffffff;
   padding: 12px 20px;
   border-radius: 25px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  transition: all var(--transition-fast);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
 .navbar .cta:hover {
   box-shadow: var(--hover-shadow);
 }
 
-/* Mobile Adjustments */
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown button */
+.dropbtn {
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 23px;
+  border-radius: 25px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: background 0.3s;
+  font-size: 1.0rem;
+}
+
+/* Optional hover style for button */
+.dropbtn:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Dropdown menu */
+.dropdown-content {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 0;
+  padding: 0 15px; /* collapsed */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  z-index: 100;
+
+  /* FIX: background always gradient, start invisible */
+  background: var(--gradient-bg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Open state */
+.dropdown-content.open {
+  max-height: 500px; /* enough for content */
+  padding: 10px 15px; /* expanded */
+  opacity: 1;
+  pointer-events: auto;
+  background: var(--gradient-bg);
+}
+
+/* Dropdown links hover effect */
+.dropdown-content a {
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background: var(--lightteal); /* full gradient background */
+  color: #080000;                 /* ensure text remains visible */
+  transform: translateX(5px);     /* subtle movement */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2); /* slight depth */
+}
+
+/* ==============================
+   MOBILE
+============================== */
 @media (max-width: 980px) {
   .navbar {
     flex-direction: column;
     align-items: center;
   }
 
-  .navbar a {
-    margin-bottom: 10px; 
+  .navbar a,
+  .dropbtn {
+    width: 100%;
+    text-align: center;
   }
 
-  .navbar .cta {
-    margin-top: 10px; 
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    margin-top: 5px;
   }
 }
+
 
 /* Hero Section */
 .hero {
@@ -158,11 +240,13 @@ body {
   background: var(--gradient-bg);
   color: #ffffff;
   text-align: left;
+  border-radius: 0;
 }
 
 .hero-left {
   max-width: 700px;
   animation: fadeInLeft 1s ease-in-out;
+  border-radius: 0;
 }
 
 .hero h1 {
@@ -602,6 +686,7 @@ body {
   padding: 40px 20px;
   background: linear-gradient(135deg, #50C9C3, #1D4E89);
   color: #ffffff;
+  animation: fadeInLeft 1s ease-in-out;
 }
 
 /* Services Cards Grid */
@@ -836,13 +921,13 @@ body {
   box-shadow: var(--hover-shadow);
 }
 
-/* Hero Section */
+/* Hero Sections (index first herto card thing ) */
 .hero {
   padding: 80px 20px;
   background: linear-gradient(135deg, var(--accent), var(--primary)); /* index top hero */
   color: #fff;
   text-align: center;
-  border-radius: var(--radius);
+  border-radius: 0px;
   margin-bottom: 40px;
 }
 
@@ -879,6 +964,7 @@ body {
   border-radius: var(--radius);
   box-shadow: var(--card-shadow);
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  animation: fadeInLeft 1s ease-in-out;
 }
 .card.qual{
   background-color: #d5e7e6;
@@ -1050,35 +1136,57 @@ body.qual-page .site-footer {
   margin-top:8px;
 }
 
-.year-dropdown {
-  margin-bottom: 10px;
+/* Container for all year buttons */
+.year-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto; /* horizontal scroll if too many */
+  padding: 10px 0;
+  margin-bottom: 15px;
+  scroll-behavior: smooth;
 }
 
-.year-toggle {
-  width: 100%;
+.year-buttons {
+  display: flex;
+  flex-wrap: wrap;       /* allows buttons to go to the next line */
+  gap: 10px;             /* space between buttons */
+  margin-bottom: 20px;
+}
+
+.year-btn {
+  flex: 1 1 100px;       /* grow to fill row, shrink if needed, base width 100px */
+  padding: 20px 0;       /* vertical padding */
   background: var(--gradient-bg);
   color: #fff;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1rem;
   font-weight: bold;
-  cursor: pointer;
+  font-size: 1.2rem;     /* ↑ increased text size */
+  border: none;
   border-radius: 8px;
-  text-align: left;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.year-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  padding: 0 10px;
-  margin-top: 5px;
+.year-btn:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.year-content.show {
-  max-height: 1000px; 
-  padding: 10px;
+.year-btn.active {
+  transform: translateY(-10px);  /* raises the button */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);  /* stronger shadow for depth */
 }
+
+/* Optional: smooth scroll when selecting a button */
+.year-list::-webkit-scrollbar {
+  height: 6px;
+}
+
+.year-list::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
 
 .book-entry {
   background-color: #e0f2f1;
@@ -1086,6 +1194,12 @@ body.qual-page .site-footer {
   border-radius: 8px;
   margin-bottom: 5px;
   
+}
+.book-entry em {
+  font-style: normal;
+  font-weight: bold;
+  color:  #11b050;
+  margin-right: 5px;
 }
 
 .book-entry .meta {
@@ -1203,7 +1317,3 @@ body.qual-page .site-footer {
   margin: 5px 0;
   color: black
 }
-
-
-
- 

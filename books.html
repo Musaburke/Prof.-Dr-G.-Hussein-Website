@@ -17,14 +17,24 @@
         <div class="title"><span class="name">Prof. Dr. G. Hussein Rassool</span><span class="sub">Islāmic Psychotherapy &amp; Psychology</span></div></a>
 
       <nav class="navbar" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="books.html" class="active">Books</a>
-        <a href="qualifications.html">Qualifications</a>
-        <a href="positions.html">Positions</a>
-        <a href="publications.html">Publications</a>
-        <a href="services.html#contactForm" class="cta">Book Consultation</a>
-      </nav>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="books.html">Books</a>
+  <a href="qualifications.html">Qualifications</a>
+  <a href="positions.html">Positions</a>
+
+  <!-- Publications Dropdown -->
+  <div class="dropdown">
+    <button class="dropbtn" aria-expanded="false">Publications <span class="arrow">▾</span></button>
+    <div class="dropdown-content">
+      <a href="publications.html#books">Books</a>
+      <a href="journal.html">Journals</a>
+      <a href="blogs.html">Blogs</a>
+    </div>
+  </div>
+
+  <a href="services.html#contactForm" class="cta">Book Consultation</a>
+</nav>
     </div>
     <div id="mobile-menu" style="display:none; background:var(--surface); border-top:1px solid rgba(15,23,42,0.03);">
       <div class="container" style="padding:12px 0; display:flex;flex-direction:column;gap:6px;">
@@ -42,6 +52,96 @@
  
 
    
-  
+  <script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  dropdowns.forEach(drop => {
+    const content = drop.querySelector('.dropdown-content');
+    if (!content) return;
+
+    // Track if mouse is over dropdown or content
+    let isHovered = false;
+
+    drop.addEventListener('mouseenter', () => {
+      isHovered = true;
+      content.classList.add('open');
+    });
+
+    drop.addEventListener('mouseleave', () => {
+      isHovered = false;
+      // Delay to allow moving into content
+      setTimeout(() => {
+        if (!isHovered) content.classList.remove('open');
+      }, 100);
+    });
+
+    content.addEventListener('mouseenter', () => {
+      isHovered = true;
+      content.classList.add('open');
+    });
+
+    content.addEventListener('mouseleave', () => {
+      isHovered = false;
+      setTimeout(() => {
+        if (!isHovered) content.classList.remove('open');
+      }, 100);
+    });
+
+    // Click toggle for mobile
+    drop.addEventListener('click', (e) => {
+      if (e.target.closest('.dropdown-content')) return; // clicking inside doesn't toggle
+      content.classList.toggle('open');
+    });
+  });
+});
+
+</script>
+  <footer class="site-footer">
+  <div class="container footer-inner">
+    <!-- Footer Logo -->
+    <div class="footer-logo">
+      <img src="images/citations.jpeg" alt="Footer Image" class="footer-logo-img" />
+    </div>
+
+    <!-- Footer Links -->
+    <div class="footer-links">
+      <ul class="social-icons">
+        <li>
+          <a href="https://www.amazon.co.uk/G.-Hussein-Rassool/e/B001HP3XJC" target="_blank" title="Amazon">
+            <img src="images/amazon.png" alt="Amazon" class="social-icons" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/channel/UCB50SzZZYLeP9qwT6f4QHkQ" target="_blank" title="Youtube">
+            <img src="images/youtube.png" alt="Amazon" class="social-icons" />
+          </a>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?hl=en&user=zxcsvHYAAAAJ" target="_blank" title="Google Scholar">
+            <img src="images/scholar.png" alt="Google Scholar" class="social-icons" />
+          </a>
+        </li>
+        <li>
+          <a href="https://orcid.org/0000-0002-1584-7381" target="_blank" title="ORCID">
+            <img src="images/orcid.png" alt="ORCID" class="social-icons"/>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.scopus.com/authid/detail.uri?authorId=7004301839" target="_blank" title="Scopus">
+            <img src="images/Scopus.png" alt="Scopus" class="social-icons"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Footer Text -->
+    <div class="footer-text">
+      &copy; <span id="yearHome"></span> Prof. Dr. G. Hussein Rassool. All rights reserved.
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
