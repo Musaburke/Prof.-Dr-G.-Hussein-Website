@@ -173,7 +173,7 @@ body {
   gap: 5px;
   transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-  z-index: 100;
+  z-index: 200;
 
   /* FIX: background always gradient, start invisible */
   background: var(--gradient-bg);
