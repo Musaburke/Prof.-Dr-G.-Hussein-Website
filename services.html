@@ -52,12 +52,12 @@
 <section class="services-container">
   <h2>Our Services</h2>
 
-  <!-- Services Cards Grid -->
   <div class="services-cards-grid">
-    <div class="card" onclick="toggleDropdown(this)">
+
+    <div class="service-card" onclick="toggleService(this)">
       <h3>Clinical & Therapeutic Services</h3>
       <p>Comprehensive therapeutic services.</p>
-      <div class="dropdown-content">
+      <div class="service-dropdown">
         <ul>
           <li>Islāmic Psychotherapy</li>
           <li>Individual Counselling</li>
@@ -65,57 +65,70 @@
         </ul>
       </div>
     </div>
-    <div class="card" onclick="toggleDropdown(this)">
+
+    <div class="service-card" onclick="toggleService(this)">
       <h3>Spiritual & Islāmic Psychological Support</h3>
       <p>Guidance rooted in Islāmic spiritual principles.</p>
-      <div class="dropdown-content">
+      <div class="service-dropdown">
         <ul>
-          <li>Islāmic spiritual counselling and guidance</li>
+          <li>Islāmic spiritual counselling</li>
           <li>Integration of Qur’anic principles</li>
         </ul>
       </div>
     </div>
-    <div class="card" onclick="toggleDropdown(this)">
+
+    <div class="service-card" onclick="toggleService(this)">
       <h3>Clinical Supervision & Mentoring</h3>
-      <p>Support for professionals integrating Islāmic models.</p>
-      <div class="dropdown-content">
+      <p>Support for professionals.</p>
+      <div class="service-dropdown">
         <ul>
-          <li>Supervision for practitioners</li>
-          <li>Mentorship for mental health professionals</li>
+          <li>Clinical supervision</li>
+          <li>Professional mentoring</li>
         </ul>
       </div>
     </div>
-    <div class="card" onclick="toggleDropdown(this)">
-      <h3>Educational & Developmental Services</h3>
-      <p>Support grounded in Islāmic principles for families.</p>
-      <div class="dropdown-content">
+
+    <div class="service-card" onclick="toggleService(this)">
+      <h3>
+  Educational &<br>
+  Developmental Services
+</h3>
+      <p>Support for families and individuals.</p>
+      <div class="service-dropdown">
         <ul>
           <li>Psycho-education</li>
           <li>Parenting counselling</li>
         </ul>
       </div>
     </div>
-    <div class="card" onclick="toggleDropdown(this)">
-      <h3>Organisational & Institutional Services</h3>
-      <p>Program development and consultations.</p>
-      <div class="dropdown-content">
+
+    <div class="service-card" onclick="toggleService(this)">
+      <h3>
+  Organisational &<br>
+  Institutional Services
+</h3>
+      <p>Consultation and programme development.</p>
+      <div class="service-dropdown">
         <ul>
-          <li>Islāmic mental health programmes</li>
-          <li>Consultation for mosques, schools, community</li>
+          <li>Mental health programmes</li>
+          <li>Community consultation</li>
         </ul>
       </div>
     </div>
-    <div class="card" onclick="toggleDropdown(this)">
+
+    <div class="service-card" onclick="toggleService(this)">
       <h3>Research & Scholarly Contributions</h3>
-      <p>Engagement in research and academic contributions.</p>
-      <div class="dropdown-content">
+      <p>Academic and research engagement.</p>
+      <div class="service-dropdown">
         <ul>
           <li>Research supervision</li>
-          <li>Academic writing & publications</li>
+          <li>Academic publications</li>
         </ul>
       </div>
     </div>
+
   </div>
+
 
  <!-- Contact + Form Section -->
 <div class="contact-form-section">
@@ -200,12 +213,10 @@
 </script>
 
 <script>
-  function toggleDropdown(card) {
-    const dropdown = card.querySelector('.dropdown-content');
-    dropdown.classList.toggle('open');
+  function toggleService(card) {
+    card.classList.toggle("open");
   }
 </script>
-
   
 
 
