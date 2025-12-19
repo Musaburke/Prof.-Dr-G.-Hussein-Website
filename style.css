@@ -1510,3 +1510,8 @@ body.qual-page .site-footer {
     rgba(22, 22, 22, 0.7)
   );
 }
+
+.card img {
+  max-width: 174px;
+  height: auto;
+}
