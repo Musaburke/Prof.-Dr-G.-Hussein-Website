@@ -466,6 +466,7 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-top: 1.5rem; /* adjust as needed */
 }
 
 .checklist li {
@@ -834,7 +835,7 @@ body {
 }
 
 .service-card.open .service-dropdown {
-  max-height: 300px;
+  max-height: 550px ;
 }
 
 .service-dropdown ul {
@@ -1076,7 +1077,7 @@ body {
 }
 .card.qual{
   background-color: #d5e7e6;
-  padding: 20px;
+  padding: auto px;
 }
 .card.qual p {
   color: black;
@@ -1088,7 +1089,7 @@ body {
 .card.qual .sub {
   font-weight: 600;
   margin-bottom: 4px;
-  font-size: 1rem;
+  font-size: 0rem;
 }
 
 .card.qual .inst {
